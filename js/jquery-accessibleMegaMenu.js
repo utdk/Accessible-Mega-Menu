@@ -214,7 +214,7 @@ limitations under the License.
             element = $(element);
             var settings = this.settings;
             if (!element.attr("id")) {
-                element.attr("id", settings.uuidPrefix + "-" + new Date().getTime() + "-" + (++uuid));
+                element.attr("id", settings.uuidPrefix + "-" + (++uuid));
             }
         };
 
