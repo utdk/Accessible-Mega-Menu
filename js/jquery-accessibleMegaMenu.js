@@ -352,7 +352,7 @@ limitations under the License.
                 }
             }
             // Without panel on enter event.
-            else if (topli.length === 1 && panel.length === 0 && event.type == "keydown" && target.hasAttribute("href")) {
+            else if (topli.length === 1 && panel.length === 0 && event.type == "keydown" && target.attr("href") !== undefined) {
                 window.location.href = target.attr("href");
             }
         };
