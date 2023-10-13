@@ -328,7 +328,11 @@ limitations under the License.
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
             // With panel.
-            if (topli.length === 1 && panel.length === 0 && topli.find('.' + this.settings.panelClass).length === 1) {
+            if (topli.length === 1 && panel.length === 0 && event.type == "keydown" && target.attr("href") !== undefined) {
+                event.stopPropagation();
+                window.location.href = target.attr("href");
+            }
+            else if (topli.length === 1 && panel.length === 0 && topli.find('.' + this.settings.panelClass).length === 1) {
                 // Handle click event.
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
@@ -350,10 +354,6 @@ limitations under the License.
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 }
-            }
-            // Without panel on enter event.
-            else if (topli.length === 1 && panel.length === 0 && event.type == "keydown" && target.hasAttribute("href")) {
-                window.location.href = target.attr("href");
             }
         };
 
